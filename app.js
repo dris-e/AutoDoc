@@ -168,9 +168,10 @@ console.log(`${followUpQuestionsAndAnswers ? followUpQuestionsAndAnswers + '\n' 
 
 
 
+const PORT = process.env.PORT || 3000;
 
-app.listen(3000, () => {
-  console.log('AutoDoc listening on port 3000');
+app.listen(PORT, () => {
+  console.log(`AutoDoc listening on port ${PORT}`);
 });
 
 
