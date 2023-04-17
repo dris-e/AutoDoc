@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoDoc - Results</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">AUTODOC - DIAGNOSIS & TREATMENT 🧐</h1>
+    <div class="card diagnosis-card">
+      <h2 class="card-header">DIAGNOSIS 🩺</h2>
+      <div class="card-body">
+        <p class="card-text"><%= diagnosis %></p>
+      </div>
+    </div>
+    <div class="card treatment-card">
+      <h2 class="card-header">TREATMENT 💉</h2>
+      <div class="card-body">
+        <p class="card-text"><%= treatment %></p>
+      </div>
+    </div>
+    <% if (comments.length > 0) { %>
+      <div class="card comment-card">
+        <h2 class="card-header">ADDITIONAL COMMENTS 💬</h2>
+        <div class="card-body">
+          <p class="card-text"><%= comments %></p>
+        </div>
+      </div>
+    <% } %>
+    <div class="text-center">
+      <a href="/" class="btn btn-primary back-btn">Start Over</a>
+    </div>
+  </div>
+  <div class="text-corner">
+    <p>Created by <a href="www.dris.one">Dris Elamri</a> (after dropping a 67% on a CSA test 💯)</p>
+</div>
+</body>
+</html>

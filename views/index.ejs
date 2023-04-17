@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoDoc - AI Doctor</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 👨‍⚕️ -->
+        <h1 class="text-center">AUTODOC 👨‍⚕️</h1>
+        <p class="text-center">🤓 AI-Powered Doctor / Diagnosis Tool ⚡</p>
+        <form id="symptom-checker-form" action="/results" method="post">
+            <div id="step-1" class="step">
+                <label for="symptoms">First, what are your main symptoms?<span class="required-indicator">*</span></label>
+                <input type="text" name="symptoms" id="symptoms" required>
+                <div class="step-controls">
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-2" class="step" style="display:none;">
+                <label for="symptom_start">When did these symptoms start, and have they been consistent or changed over time?<span class="required-indicator">*</span></label>
+                <input type="text" name="symptom_start" id="symptom_start" required>
+                <div class="step-controls">
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-3" class="step" style="display:none;">
+                <label for="medications">Are you currently taking any medications, supplements, or over-the-counter drugs? If so, please provide the names and dosages.</label>
+                <input type="text" name="medications" id="medications">
+                <div class="step-controls">
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-4" class="step" style="display:none;">
+                <label for="allergies">Do you have any known allergies, particularly to medications?</label>
+                <input type="text" name="allergies" id="allergies">
+                <div class="step-controls">
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-5" class="step" style="display:none;">
+                <label for="chronic_conditions">Have you been diagnosed with any chronic medical conditions? (e.g., diabetes, hypertension, asthma, etc.)</label>
+                <input type="text" name="chronic_conditions" id="chronic_conditions">
+                <div class="step-controls">
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-6" class="step" style="display:none;">
+                <label for="contact_sick">Have you recently been in contact with anyone who was sick or diagnosed with an infectious disease?<span class="required-indicator">*</span></label>
+                <select name="contact_sick" id="contact_sick" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="step-controls">
+                    <button type="button" class="prev-step">Previous</button>
+                    <button type="button" class="next-step">Next</button>
+                    <div class="question-counter"></div>
+                </div>
+            </div>
+            <div id="step-7" class="step" style="display:none;">
+                <label for="recent_travel">Have you recently traveled or been in a high-risk environment (e.g., crowded places, healthcare settings, etc.)?<span class="required-indicator">*</span></label>
+                <select name="recent_travel" id="recent_travel" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    </select>
+                    <div class="step-controls">
+                        <button type="button" class="prev-step">Previous</button>
+                        <button type="button" class="next-step">Next</button>
+                        <div class="question-counter"></div>
+                    </div>
+                    </div>
+                    <div id="step-8" class="step" style="display:none;">
+                    <label for="recent_injury">Have you experienced any recent injuries or undergone any surgical procedures?</label>
+                    <input type="text" name="recent_injury" id="recent_injury">
+                    <div class="step-controls">
+                        <button type="button" class="prev-step">Previous</button>
+                        <button type="button" class="next-step">Next</button>
+                        <div class="question-counter"></div>
+                    </div>
+                    </div>
+                    <div id="step-9" class="step" style="display:none;">
+                    <label for="additional_symptoms">Next, are you experiencing any additional symptoms, such as weight loss, fatigue, or changes in appetite?</label>
+                    <input type="text" name="additional_symptoms" id="additional_symptoms">
+                    <div class="step-controls">
+                        <button type="button" class="prev-step">Previous</button>
+                        <button type="button" class="next-step">Next</button>
+                        <div class="question-counter"></div>
+                    </div>
+                    </div>
+                    <div id="step-10" class="step" style="display:none;">
+                    <label for="age_sex_health">Lastly, what's your age, sex, and general health status (e.g., smoker, exercise habits, etc.)?<span class="required-indicator">*</span></label>
+                    <input type="text" name="age_sex_health" id="age_sex_health" required>
+                    <div class="step-controls">
+                        <button type="button" class="prev-step">Previous</button>
+                        <button type="button" class="next-step next-button">Next</button>
+                    </div>
+                    <div class="question-counter"></div>
+                    </div>
+
+                    <div class="diagnosis-section">
+                        <h2 class="text-center">CURRENT DIAGNOSIS:</h2>
+                        <p id="suspected-diagnosis" class="text-center">🤔 Waiting<span class="ellipsis"></span></p>
+                      </div>
+                      <div id="submit-step" class="step" style="display: none">
+                        <button type="submit">Submit</button>
+                        <div id="loader" class="loader spinner-border text-primary" role="status" style="display: none;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    </form>
+                    <div class="text-corner">
+                        <p>Created by <a href="www.dris.one">Dris Elamri</a> (after dropping a 67% on a CSA test 💯)</p>
+                    </div>
+                    
+                </div>
+            </body>
+            </html>
