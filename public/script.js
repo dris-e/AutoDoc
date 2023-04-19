@@ -120,6 +120,8 @@ $(document).ready(function () {
         } catch (error) {
           console.error("Error updating diagnosis:", error);
         }
+
+        autoResizeInput($("#symptoms"));
       }
 
 
@@ -166,14 +168,14 @@ $(document).ready(function () {
                 <input type="text" id="question-${questionNumber}" name="follow_up_answers[]">
                 <div class="step-controls">
                     <button type="button" class="prev-step">Previous</button>
-                    ${questionNumber > 10 ? '<button type="submit" class="submit-button">Submit</button>' : ''}
+                    ${questionNumber > 9 ? '<button type="submit" class="submit-button">Submit</button>' : ''}
                     <button type="button" class="next-step next-button">Next</button>
-                 </div>
-                 <div class="question-counter"></div>
+                    <div class="question-counter"></div>
+                </div>
               </div>
             `;
           
-            $(newStep).insertBefore(".diagnosis-section");
+            $(newStep).insertBefore("#submit-step");
           
             updateQuestionCounter(0);
           }
@@ -202,6 +204,14 @@ $(document).ready(function () {
         $(".loader").show();
       });
     });
+
+    // function autoResizeInput(input) {
+    //     input.on("input", function () {
+    //         $(this).css("height", "auto");
+    //         $(this).css("height", this.scrollHeight + "px");
+    //     });
+    // }
+    
     
 
 

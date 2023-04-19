@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoDoc - AI Doctor</title>
+    <title>👨‍⚕️ AutoDoc - AI-Powered Doctor</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,7 +12,16 @@
 <body>
     <div class="container">
         <!-- 👨‍⚕️ -->
-        <h1 class="text-center">AUTODOC 👨‍⚕️</h1>
+        <!-- to do list
+        (not doing this) make text box automaically increase or decrease size
+        [x] at box shadow to watermark
+        [x] use cases/example boxes (also instrucations maybe possibly idk)
+        history? 
+        [x] edit temperatuire of chat gpt
+        add login and make people who have used once login to see results
+        add prewritten text in input box as example
+        -->
+        <h1 class="text-center"><span class="special-text">AUTO</span>DOC 👨‍⚕️</h1>
         <p class="text-center">⚡ AI-Powered Doctor / Diagnosis Tool</p>
         <form id="symptom-checker-form" action="/results" method="post">
             <div id="step-1" class="step">
@@ -62,8 +71,8 @@
             <div id="step-6" class="step" style="display:none;">
                 <label for="contact_sick">Have you recently been in contact with anyone who was sick or diagnosed with an infectious disease?<span class="required-indicator">*</span></label>
                 <select name="contact_sick" id="contact_sick" required>
-                    <option value="yes">Yes</option>
                     <option value="no">No</option>
+                    <option value="yes">Yes</option>
                 </select>
                 <div class="step-controls">
                     <button type="button" class="prev-step">Previous</button>
@@ -74,8 +83,8 @@
             <div id="step-7" class="step" style="display:none;">
                 <label for="recent_travel">Have you recently traveled or been in a high-risk environment (e.g., crowded places, healthcare settings, etc.)?<span class="required-indicator">*</span></label>
                 <select name="recent_travel" id="recent_travel" required>
-                    <option value="yes">Yes</option>
                     <option value="no">No</option>
+                    <option value="Yes">Yes</option>
                     </select>
                     <div class="step-controls">
                         <button type="button" class="prev-step">Previous</button>
@@ -110,20 +119,32 @@
                     </div>
                     <div class="question-counter"></div>
                     </div>
-
-                    <div class="diagnosis-section">
-                        <h2 class="text-center">CURRENT DIAGNOSIS:</h2>
-                        <p id="suspected-diagnosis" class="text-center">🤔 Waiting<span class="ellipsis"></span></p>
-                      </div>
-                      <div id="submit-step" class="step" style="display: none">
+                      <div id="submit-step" style="display: none">
                         <button type="submit">Submit</button>
                         <div id="loader" class="loader spinner-border text-primary" role="status" style="display: none;">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
+                    <div class="diagnosis-section container">
+                        <h2 class="text-center">CURRENT DIAGNOSIS:</h2>
+                        <p id="suspected-diagnosis" class="text-center">🤔 Waiting<span class="ellipsis"></span></p>
+                      </div>
+                    <div class="example-section container">
+                        <h3 class="text-center">USE CASES:</h3>
+                        <div class="example-box">
+                            <p class="text-center">✅ DIAGNOSE BASIC AILMENTS</p>
+                        </div>
+                        <div class="example-box">
+                            <p class="text-center">✅ SAVE ON HEALTH INSURANCE</p>
+                        </div>
+                        <div class="example-box">
+                            <p class="text-center">❌ USE AS MEDICAL ADVICE</p>
+                        </div>
+                        <p class="text-center text-optional">Please note that questions without a red asterisk <span class="required-indicator">*</span> are optional, however, answering additional questions only increases the accuracy of your diagnosis.</p>
+                    </div>
                     </form>
                     <div class="text-corner">
-                        <p>Created by <a href="https://dris.one" target="_blank">Dris Elamri</a> (after dropping a 67% on a CSA test 💯)</p>
+                        <p>Created by <a href="https://dris.one" target="_blank">Dris Elamri</a> (after dropping a 64% on a CSA test 💯)</p>
                     </div>
                     
                 </div>
